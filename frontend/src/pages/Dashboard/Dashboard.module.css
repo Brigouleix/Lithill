@@ -1,0 +1,187 @@
+/* ── Header profil ───────────────────────────────────────── */
+
+.profileCard {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.9);
+  margin-bottom: var(--space-6);
+}
+
+.banner {
+  position: relative; height: 200px; overflow: hidden;
+  background: linear-gradient(135deg, var(--color-accent-soft) 0%, var(--accent-mid) 60%, var(--accent-light) 100%);
+}
+.bannerImg  { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bannerPh   { width: 100%; height: 100%; }
+
+.bannerEdit {
+  position: absolute; bottom: var(--space-3); right: var(--space-3);
+  background: rgba(0,0,0,.45); color: #fff;
+  border-radius: var(--radius-full); width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1.125rem;
+  backdrop-filter: blur(8px);
+  transition: background .15s, transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.bannerEdit:hover { background: rgba(0,0,0,.65); transform: scale(1.1); }
+
+.profileInfo {
+  display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap;
+  padding: 0 var(--space-5) var(--space-5);
+}
+
+.avatarWrap { position: relative; margin-top: -44px; flex-shrink: 0; }
+
+.avatarCircle {
+  width: 88px; height: 88px; border-radius: 50%;
+  overflow: hidden; background: var(--color-accent-soft);
+  border: 3px solid rgba(255,255,255,.95);
+  box-shadow: 0 4px 20px rgba(var(--accent-rgb),.22);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.25rem; font-weight: 700; color: var(--color-accent);
+  transition: border-color .3s ease;
+}
+.avatarCircle img { width: 100%; height: 100%; object-fit: cover; }
+
+.avatarEdit {
+  position: absolute; bottom: 2px; right: 2px;
+  background: var(--color-accent); color: #fff;
+  border-radius: 50%; width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: .8rem;
+  border: 2px solid #fff;
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1);
+}
+.avatarEdit:hover { transform: scale(1.15); }
+
+.profileName { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-2); }
+
+.badgeRow {
+  display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap;
+}
+.badgeSelect {
+  padding: 4px 10px; border-radius: var(--radius-full);
+  border: 1.5px solid rgba(var(--accent-rgb),.2);
+  background: var(--surface-picker); backdrop-filter: blur(8px);
+  font-family: var(--font-sans); font-size: .8125rem; color: var(--color-text);
+  cursor: pointer; transition: border-color .15s;
+}
+.badgeSelect:focus { outline: none; border-color: var(--color-accent); }
+
+.empty {
+  text-align: center; padding: var(--space-9) 0;
+  display: flex; flex-direction: column; gap: var(--space-4); align-items: center;
+}
+.emptyTitle { font-size: 1.25rem; font-weight: 600; }
+
+/* ── Grille portfolios ───────────────────────────────────── */
+
+.albumGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.albumCard {
+  display: flex; flex-direction: column;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,.9);
+  cursor: pointer; text-align: left; padding: 0; overflow: hidden;
+  transition:
+    transform .28s cubic-bezier(.34,1.4,.64,1),
+    box-shadow .28s ease,
+    border-color .18s;
+}
+.albumCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.albumActive {
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 3px rgba(var(--accent-rgb),.18),
+    0 8px 32px rgba(var(--accent-rgb),.20),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  background: rgba(var(--accent-soft-rgb),.75);
+}
+
+.albumThumb {
+  aspect-ratio: 4/3; overflow: hidden;
+  background: linear-gradient(135deg, var(--color-accent-soft) 0%, var(--accent-mid) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.albumThumb img    { width: 100%; height: 100%; object-fit: cover; }
+.albumInitial      { font-size: 2.25rem; font-weight: 700; color: var(--color-accent); }
+
+.albumInfo         { padding: var(--space-3) var(--space-4); }
+.albumTitle        { font-weight: 600; font-size: .9375rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.albumCount        { color: var(--color-text-muted); font-size: .8125rem; margin-top: 3px; }
+
+/* ── Contenu portfolio sélectionné ──────────────────────── */
+
+.albumContent {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.albumHeader {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5); border-bottom: 1px solid rgba(var(--accent-rgb),.1);
+}
+.albumDesc    { color: var(--color-text-muted); font-size: .9375rem; margin-top: var(--space-1); }
+.albumActions { display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center; }
+
+.projetsHead {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+/* ── Liste projets ───────────────────────────────────────── */
+
+.list { display: flex; flex-direction: column; gap: var(--space-3); }
+
+.row {
+  display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap;
+  background: var(--surface-row);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--surface-row-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  transition: background .18s, box-shadow .18s;
+}
+.row:hover {
+  background: var(--surface-row-hover);
+  box-shadow: 0 2px 12px rgba(var(--accent-rgb),.08);
+}
+
+.rowThumb {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  overflow: hidden; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--accent-mid));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--color-accent); font-size: 1.375rem;
+}
+.rowThumb img  { width: 100%; height: 100%; object-fit: cover; }
+
+.rowInfo    { display: flex; align-items: center; gap: var(--space-3); flex: 1; min-width: 160px; }
+.rowTitle   { font-weight: 500; }
+.rowStats   { display: flex; gap: var(--space-4); color: var(--color-text-muted); font-size: .875rem; }
+.rowActions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+
+.published { background: rgba(52,199,89,.12);  color: #1a7a38; border: 1px solid rgba(52,199,89,.2); }
+.draft     { background: rgba(255,149,0,.12);   color: #7a4a00; border: 1px solid rgba(255,149,0,.2); }

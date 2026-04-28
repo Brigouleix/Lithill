@@ -1,0 +1,20 @@
+.toolbar { margin-bottom: var(--space-5); }
+
+.table { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+.table th, .table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--color-border); }
+.table th { font-weight: 600; background: var(--color-surface); color: var(--color-text-muted); font-size: .8125rem; text-transform: uppercase; letter-spacing: .05em; }
+.table tr:hover td { background: var(--color-bg); }
+.actions { display: flex; gap: var(--space-2); }
+
+.actif   { background: #d1fae5; color: #065f46; }
+.banni   { background: #fee2e2; color: #991b1b; }
+.attente { background: #fef3c7; color: #92400e; }
+
+.pagination { display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-6); }
+
+.commentList    { display: flex; flex-direction: column; gap: var(--space-4); }
+.commentCard    { background: var(--color-surface); border-radius: var(--radius-md); padding: var(--space-5); box-shadow: var(--shadow-sm); }
+.commentMeta    { display: flex; gap: var(--space-3); align-items: center; margin-bottom: var(--space-3); flex-wrap: wrap; font-size: .9375rem; }
+.date           { color: var(--color-text-muted); font-size: .8125rem; margin-left: auto; }
+.commentText    { color: var(--color-text-muted); background: var(--color-bg); padding: var(--space-3); border-radius: var(--radius-sm); margin-bottom: var(--space-4); }
+.commentActions { display: flex; gap: var(--space-3); }

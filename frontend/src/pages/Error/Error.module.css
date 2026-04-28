@@ -1,0 +1,20 @@
+.page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: var(--space-7);
+}
+
+.code {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--color-accent-soft);
+  line-height: 1;
+}
+
+.title { font-size: 1.75rem; font-weight: 700; }
+.desc  { color: var(--color-text-muted); max-width: 420px; }

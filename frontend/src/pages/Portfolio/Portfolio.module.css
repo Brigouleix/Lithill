@@ -1,0 +1,55 @@
+/* ── Banniere pleine largeur ─────────────────────────────── */
+
+.bannerSection {
+  width: 100%; height: 260px; overflow: hidden;
+  background: linear-gradient(135deg, var(--color-accent-soft) 0%, var(--accent-mid) 55%, var(--accent-light) 100%);
+  margin-bottom: 0;
+}
+.bannerImg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bannerPh  { width: 100%; height: 100%; }
+
+/* ── Bloc profil ─────────────────────────────────────────── */
+
+.profileBlock {
+  display: flex; align-items: flex-end; gap: var(--space-5);
+  flex-wrap: wrap; margin-bottom: var(--space-4);
+}
+
+.avatarWrap { margin-top: -52px; flex-shrink: 0; }
+
+.avatar {
+  width: 104px; height: 104px; border-radius: 50%; object-fit: cover;
+  border: 4px solid rgba(255,255,255,.95);
+  box-shadow: 0 6px 24px rgba(var(--accent-rgb),.22);
+  background: var(--color-accent-soft);
+}
+.avatarPh {
+  width: 104px; height: 104px; border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  border: 4px solid rgba(255,255,255,.95);
+  box-shadow: 0 6px 24px rgba(var(--accent-rgb),.22);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; font-weight: 700;
+}
+
+.profileMeta   { padding-bottom: var(--space-2); }
+.nameRow       { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; margin-bottom: 4px; }
+.pseudo        { font-size: 1.75rem; font-weight: 700; letter-spacing: -.03em; }
+.portfolioTitle { color: var(--color-text-muted); font-size: 1rem; margin-top: 2px; }
+.bio           { color: var(--color-text-muted); font-size: .9375rem; margin-top: var(--space-2); max-width: 520px; }
+.desc          { color: var(--color-text-muted); max-width: 680px; margin-bottom: var(--space-4); }
+
+/* ── Cards projets ───────────────────────────────────────── */
+
+.card  { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+.thumb { aspect-ratio: 16/9; overflow: hidden; background: var(--color-accent-soft); }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.noImg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; font-weight: 700; color: var(--color-accent);
+}
+.body  { padding: var(--space-4); display: flex; justify-content: space-between; align-items: baseline; }
+.body h3 { font-weight: 600; }
+.stats { display: flex; gap: var(--space-3); color: var(--color-text-muted); font-size: .875rem; }

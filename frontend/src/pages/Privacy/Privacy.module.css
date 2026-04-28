@@ -1,0 +1,29 @@
+.page { max-width: 800px; margin: var(--space-8) auto; }
+
+.updated { color: var(--color-text-muted); font-size: .875rem; margin-top: calc(-1 * var(--space-4)); margin-bottom: var(--space-7); }
+
+.section { margin-bottom: var(--space-7); }
+.section h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-3); color: var(--color-primary); }
+.section p, .section li { color: var(--color-text); line-height: 1.7; }
+.section ul { padding-left: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+.section a { color: var(--color-accent); }
+
+.table { width: 100%; border-collapse: collapse; margin-top: var(--space-3); }
+.table th, .table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--color-border); font-size: .9375rem; }
+.table th { font-weight: 600; background: var(--color-bg); }
+
+.cookiePanel { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-4); max-width: 480px; }
+
+.cookieRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.cookieRow span { display: flex; flex-direction: column; gap: 2px; }
+.cookieRow strong { font-size: .9375rem; }
+.cookieRow small  { color: var(--color-text-muted); font-size: .8125rem; }
+.cookieRow input  { width: 18px; height: 18px; }

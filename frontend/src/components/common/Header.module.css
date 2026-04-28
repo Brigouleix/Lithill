@@ -1,0 +1,96 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--theme-header-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, .65);
+  box-shadow: 0 1px 0 rgba(var(--accent-rgb),.06), 0 4px 20px rgba(var(--accent-rgb),.05);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-decoration: none;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity .15s;
+}
+.logo:hover { opacity: .8; text-decoration: none; }
+
+.nav {
+  display: flex;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.nav a {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: .9375rem;
+  text-decoration: none;
+  padding: 6px var(--space-3);
+  border-radius: var(--radius-full);
+  transition: color .15s, background .15s;
+}
+.nav a:hover {
+  color: var(--color-accent);
+  background: rgba(var(--accent-rgb),.07);
+  text-decoration: none;
+}
+.active {
+  color: var(--color-accent) !important;
+  background: rgba(var(--accent-rgb),.1) !important;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.themeSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(var(--accent-rgb),.06);
+  border: 1px solid rgba(var(--accent-rgb),.14);
+  border-radius: var(--radius-full);
+  padding: 3px;
+}
+
+.themeBtn {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: .9rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .18s cubic-bezier(.34,1.56,.64,1), color .15s;
+  flex-shrink: 0;
+}
+.themeBtn:hover {
+  background: rgba(var(--accent-rgb),.12);
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+.themeBtnActive {
+  background: rgba(var(--accent-rgb),.18) !important;
+  color: var(--color-accent) !important;
+  box-shadow: 0 1px 4px rgba(var(--accent-rgb),.2);
+}

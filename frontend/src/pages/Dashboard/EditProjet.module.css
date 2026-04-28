@@ -1,0 +1,122 @@
+.form { display: flex; flex-direction: column; gap: var(--space-5); max-width: 720px; }
+.field { display: flex; flex-direction: column; gap: var(--space-2); }
+.field label { font-weight: 500; }
+.field small  { color: var(--color-text-muted); font-size: .8125rem; }
+.hint { color: var(--color-text-muted); font-size: .8125rem; }
+
+.checkboxGrid { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.checkItem    { display: flex; align-items: center; gap: var(--space-2); cursor: pointer; font-size: .9375rem; }
+
+/* ── Zone de drop / ajout photos ─────────────────────────── */
+
+.dropZone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 2px dashed rgba(var(--accent-rgb),.28);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  cursor: pointer;
+  color: var(--color-accent);
+  font-weight: 500;
+  font-size: .9375rem;
+  transition: border-color .18s, background .18s;
+  background: rgba(var(--accent-rgb),.03);
+  text-align: center;
+}
+.dropZone:hover {
+  border-color: var(--color-accent);
+  background: rgba(var(--accent-rgb),.07);
+}
+
+/* ── Previews des photos en attente ─────────────────────── */
+
+.previewGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.previewItem {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.previewItem img {
+  width: 110px; height: 82px;
+  object-fit: cover;
+  display: block;
+}
+.previewName {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  font-size: .65rem;
+  padding: 2px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.removePreview {
+  position: absolute; top: 4px; right: 4px;
+  width: 20px; height: 20px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  font-size: .75rem; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.removePreview:hover { background: rgba(255,59,48,.85); }
+
+/* ── Photos existantes ───────────────────────────────────── */
+
+.mediaGrid  { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.mediaItem  { position: relative; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); }
+.mediaItem img { width: 110px; height: 82px; object-fit: cover; display: block; }
+.deleteMedia {
+  position: absolute; top: 4px; right: 4px;
+  width: 20px; height: 20px;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  font-size: .75rem !important;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.formActions { display: flex; gap: var(--space-3); padding-top: var(--space-3); }
+
+.coverPreview {
+  width: 100%; max-width: 360px; aspect-ratio: 16/9;
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+}
+.coverPreview img { width: 100%; height: 100%; object-fit: cover; }
+
+.uploadProgress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(var(--accent-rgb),.06);
+  border-radius: var(--radius-md);
+  font-size: .875rem;
+  color: var(--color-text-muted);
+}
+.progressBar {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(var(--accent-rgb),.15);
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: width .2s ease;
+}

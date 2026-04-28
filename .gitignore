@@ -1,0 +1,32 @@
+# ── Node / Frontend ──────────────────────────────────────
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# ── PHP / Backend ─────────────────────────────────────────
+backend/vendor/
+backend/.env
+backend/config/env.php
+backend/public/uploads/
+
+# ── Uploads utilisateurs ──────────────────────────────────
+public/uploads/
+storage/
+
+# ── IDE / OS ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs / cache ─────────────────────────────────────────
+*.log
+*.cache
+
+# ── Lock files (garder composer.lock, ignorer package-lock à la racine) ──
+/package-lock.json
