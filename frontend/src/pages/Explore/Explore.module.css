@@ -27,3 +27,14 @@
 .stats { display: flex; gap: var(--space-4); color: var(--color-text-muted); font-size: .875rem; margin-top: auto; }
 
 .pagination { display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-7); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .searchBar { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .filters { gap: var(--space-1); }
+  .filters button { font-size: .8125rem; }
+}

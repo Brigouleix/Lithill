@@ -185,3 +185,21 @@
 
 .published { background: rgba(52,199,89,.12);  color: #1a7a38; border: 1px solid rgba(52,199,89,.2); }
 .draft     { background: rgba(255,149,0,.12);   color: #7a4a00; border: 1px solid rgba(255,149,0,.2); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .banner     { height: 150px; }
+  .avatarCircle { width: 72px; height: 72px; font-size: 1.75rem; }
+  .avatarWrap { margin-top: -36px; }
+  .albumGrid  { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .rowStats   { display: none; }
+}
+
+@media (max-width: 480px) {
+  .banner     { height: 110px; }
+  .profileInfo { gap: var(--space-3); }
+  .albumGrid  { grid-template-columns: repeat(2, 1fr); }
+  .row        { flex-direction: column; align-items: flex-start; }
+  .rowActions { width: 100%; justify-content: flex-end; }
+}

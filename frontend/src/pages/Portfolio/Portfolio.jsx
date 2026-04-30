@@ -7,14 +7,22 @@ import Error404 from '../Error/Error404';
 import styles from './Portfolio.module.css';
 
 export default function Portfolio() {
-  const { slug }  = useParams();
-  const [data,     setData]     = useState(null);
-  const [loading,  setLoading]  = useState(true);
-  const [notFound, setNotFound] = useState(false);
+  const { slug }       = useParams();
+  const [data,         setData]         = useState(null);
+  const [otherAlbums,  setOtherAlbums]  = useState([]);
+  const [loading,      setLoading]      = useState(true);
+  const [notFound,     setNotFound]     = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+    setNotFound(false);
     api.get(`/portfolios/${slug}`)
-      .then((r) => setData(r.data))
+      .then((r) => {
+        setData(r.data);
+        // Charger les autres portfolios publics du même utilisateur
+        return api.get(`/portfolios/user/${encodeURIComponent(r.data.pseudo)}`);
+      })
+      .then((r) => setOtherAlbums(r.data.filter((p) => p.slug !== slug)))
       .catch((e) => { if (e.response?.status === 404) setNotFound(true); })
       .finally(() => setLoading(false));
   }, [slug]);
@@ -60,7 +68,7 @@ export default function Portfolio() {
         </h2>
 
         {projets.length === 0 ? (
-          <p style={{ color: 'var(--color-text-muted)' }}>Aucun projet publie pour l'instant.</p>
+          <p style={{ color: 'var(--color-text-muted)' }}>Aucun projet publié pour l'instant.</p>
         ) : (
           <div className="grid-projects">
             {projets.map((p) => (
@@ -81,6 +89,22 @@ export default function Portfolio() {
               </Link>
             ))}
           </div>
+        )}
+
+        {otherAlbums.length > 0 && (
+          <>
+            <h2 className="section-title" style={{ marginTop: 'var(--space-8)' }}>
+              Autres albums de {sanitize(pseudo)}
+            </h2>
+            <div className={styles.otherAlbums}>
+              {otherAlbums.map((a) => (
+                <Link key={a.id_portfolio} to={`/portfolio/${a.slug}`} className={styles.albumLink}>
+                  {sanitize(a.titre)}
+                  <span className={styles.albumLinkCount}>{a.nb_projets} projet{a.nb_projets !== 1 ? 's' : ''}</span>
+                </Link>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </>

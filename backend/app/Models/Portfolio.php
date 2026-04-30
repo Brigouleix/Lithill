@@ -45,6 +45,33 @@ class Portfolio extends Model
         return $stmt->fetch() ?: null;
     }
 
+    public static function findFirstByUserPseudo(string $pseudo): ?array
+    {
+        $sql  = "SELECT p.*, u.pseudo, u.avatar, u.bio, u.banniere, u.badge
+                 FROM portfolio p
+                 JOIN utilisateur u ON u.id_utilisateur = p.id_utilisateur
+                 WHERE u.pseudo = ?
+                 ORDER BY p.date_creation ASC
+                 LIMIT 1";
+        $stmt = static::db()->prepare($sql);
+        $stmt->execute([$pseudo]);
+        return $stmt->fetch() ?: null;
+    }
+
+    public static function listByUserPseudo(string $pseudo): array
+    {
+        $sql  = "SELECT p.*, COUNT(DISTINCT pr.id_projet) AS nb_projets
+                 FROM portfolio p
+                 JOIN utilisateur u ON u.id_utilisateur = p.id_utilisateur
+                 LEFT JOIN projet pr ON pr.id_portfolio = p.id_portfolio AND pr.statut = 'publie'
+                 WHERE u.pseudo = ? AND p.visibilite = 'public'
+                 GROUP BY p.id_portfolio
+                 ORDER BY p.date_creation ASC";
+        $stmt = static::db()->prepare($sql);
+        $stmt->execute([$pseudo]);
+        return $stmt->fetchAll();
+    }
+
     public static function listPublic(int $offset, int $limit, string $search = ''): array
     {
         $sql    = "SELECT p.*, u.pseudo, u.avatar,

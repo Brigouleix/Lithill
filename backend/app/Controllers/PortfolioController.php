@@ -21,6 +21,12 @@ class PortfolioController extends Controller
     public function show(string $slug): void
     {
         $portfolio = Portfolio::findBySlugWithUser($slug);
+
+        // Fallback : le slug peut être un pseudo utilisateur
+        if (!$portfolio) {
+            $portfolio = Portfolio::findFirstByUserPseudo($slug);
+        }
+
         if (!$portfolio) $this->error(404, 'Portfolio introuvable');
 
         $viewer  = Auth::user();
@@ -30,6 +36,12 @@ class PortfolioController extends Controller
 
         $portfolio['projets'] = Projet::findByPortfolio($portfolio['id_portfolio'], !$isOwner);
         $this->json($portfolio);
+    }
+
+    public function byUser(string $pseudo): void
+    {
+        $portfolios = Portfolio::listByUserPseudo($pseudo);
+        $this->json($portfolios);
     }
 
     public function uploadCouverture(string $slug): void

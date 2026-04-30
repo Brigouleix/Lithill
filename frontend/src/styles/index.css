@@ -298,3 +298,19 @@ a:hover { text-decoration: underline; }
 .avatar { border-radius: var(--radius-full); object-fit: cover; background: var(--color-accent-soft); }
 .grid-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-5); }
 .loading { display: flex; justify-content: center; padding: var(--space-9) 0; color: var(--color-text-muted); }
+
+/* ── Responsive global ───────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .container     { padding: 0 var(--space-4); }
+  .page-title    { font-size: 1.625rem; }
+  .grid-projects { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .container     { padding: 0 var(--space-3); }
+  .page-title    { font-size: 1.375rem; margin-bottom: var(--space-4); }
+  .grid-projects { grid-template-columns: 1fr; }
+  .btn           { padding: 9px var(--space-4); }
+  .btn-sm        { padding: 5px 10px; font-size: .8125rem; }
+}

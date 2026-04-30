@@ -43,3 +43,17 @@
 .tagAttente { font-size: .875rem; color: var(--color-text-muted); }
 
 .empty { color: var(--color-text-muted); padding: var(--space-7) 0; text-align: center; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .searchBar { max-width: 100%; }
+  .card      { gap: var(--space-3); }
+}
+
+@media (max-width: 480px) {
+  .searchBar        { flex-direction: column; }
+  .searchBar input  { width: 100%; }
+  .card             { flex-direction: column; align-items: flex-start; }
+  .demandeActions   { width: 100%; justify-content: flex-end; }
+}

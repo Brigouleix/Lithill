@@ -15,9 +15,10 @@ $router->get('api/categories', 'CategorieController@index');
 $router->get('api/tags',       'CategorieController@tags');
 
 // Portfolios
-$router->get   ('api/portfolios',           'PortfolioController@index');
-$router->get   ('api/portfolios/miens',     'PortfolioController@miens');
-$router->get   ('api/portfolios/{slug}',    'PortfolioController@show');
+$router->get   ('api/portfolios',               'PortfolioController@index');
+$router->get   ('api/portfolios/miens',         'PortfolioController@miens');
+$router->get   ('api/portfolios/user/{pseudo}', 'PortfolioController@byUser');
+$router->get   ('api/portfolios/{slug}',        'PortfolioController@show');
 $router->post  ('api/portfolios',           'PortfolioController@store');
 $router->patch ('api/portfolios/{slug}',    'PortfolioController@update');
 $router->delete('api/portfolios/{slug}',    'PortfolioController@destroy');

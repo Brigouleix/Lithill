@@ -126,3 +126,18 @@
 
 .published { background: rgba(52,199,89,.12);  color: #1a7a38; border: 1px solid rgba(52,199,89,.2); }
 .draft     { background: rgba(255,149,0,.12);   color: #7a4a00; border: 1px solid rgba(255,149,0,.2); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .summaryGrid { grid-template-columns: repeat(2, 1fr); }
+  .tableHead   { flex-direction: column; align-items: flex-start; }
+  .projTitle   { max-width: 140px; }
+}
+
+@media (max-width: 480px) {
+  .summaryGrid  { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .summaryValue { font-size: 1.25rem; }
+  .pageHead     { flex-direction: column; }
+  .table th, .table td { padding: var(--space-2) var(--space-3); font-size: .8125rem; }
+}
